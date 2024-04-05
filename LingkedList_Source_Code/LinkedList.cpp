@@ -117,13 +117,13 @@ class LinkedList{
 			}
 				Node *tmp2 = tmp;
 				tmp = tmp->next;
-				if(tmp->next = tail){
+				if(tmp->next == tail){
 					delete tail;
 					tail = tmp2;
 				} else {
 					tmp2->next = tmp->next;
 					tmp->next = NULL;
-					delete tmp'
+					delete tmp;
 				}
 			}
 		}
@@ -187,8 +187,15 @@ int main(int argc, char** argv) {
 	list1->insertDataAfter('Z', 'X');
 	
 	cout << endl;
+
+	list1->deletefromHead();
+
 	
+	list1->deletefromTail();
+
+	list1->deleteafterId('X');
+	cout << endl;
+
 	list1->printAll();
-	
 	return 0;
 }
