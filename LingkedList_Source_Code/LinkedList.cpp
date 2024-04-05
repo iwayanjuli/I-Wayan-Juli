@@ -68,7 +68,66 @@ class LinkedList{
 				}
 			}
 		}
-		
+
+		void deletefromHead(){
+			if(head == NULL){
+				cout << "LinkedList is Empty!" << endl;
+				return;
+			} else if (head == tail){
+				delete head;
+				head = tail = NULL;
+			} else {
+				Node *tmp = head;
+				head = head->next;
+				tmp->next = NULL;
+				delete tmp;
+			}	
+		}
+
+		void deletefromTail(){
+			if (head == NULL){
+				cout << "LinkedList is Empty!" << endl;
+				return;
+			} else if (head == tail){
+				deletefromHead();
+			} else {
+				Node *tmp = head;
+				while (tmp != NULL && tmp->next != tail){
+					tmp = tmp->next;
+				}
+				delete tail;
+				tail = tmp;
+				tmp->next = NULL;
+			}	
+		}
+		void deleteafterId(char afterId){
+			if (head == NULL){
+				cout << "LinkedList is Empty!" << endl;
+				return;
+			} else if (head == tail){
+				deletefromHead();
+			} else {
+				Node *tmp = head;
+				while(tmp != NULL && tmp->id != afterId){
+					tmp = tmp->next;
+			}
+			if (tmp == NULL || tmp->next == NULL){
+				cout <<"Node dengan after id" << afterId <<"tidak ada!" <<endl;
+				return;
+			}
+				Node *tmp2 = tmp;
+				tmp = tmp->next;
+				if(tmp->next = tail){
+					delete tail;
+					tail = tmp2;
+				} else {
+					tmp2->next = tmp->next;
+					tmp->next = NULL;
+					delete tmp'
+				}
+			}
+		}
+			
 		void printAll(){
 			Node *tmp = head;
 			
